@@ -1,0 +1,16 @@
+Measure   KEYWORD1
+SensorManager	KEYWORD1
+include   KEYWORD2
+clear    KEYWORD2
+resetAverage	KEYWORD2
+getCount	KEYWORD2
+getMax	KEYWORD2
+getMin	KEYWORD2
+getAverage	KEYWORD2
+getCurrent	KEYWORD2
+getTotal	KEYWORD2
+printMeasure	KEYWORD2
+setReportDelay KEYWORD2
+setSampleDelay	KEYWORD2
+sampleNow	KEYWORD2
+reportNow	KEYWORD2
