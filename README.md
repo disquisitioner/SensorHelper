@@ -27,52 +27,52 @@ One, the `Measure` object, handles accumulating values read from sensors. Each s
 # Sensor Helper Object Classes
 The **Measure** object class provides the following public functions. Note that all sensor values to be handled are processed as floating point numbers, which may not correspond to values returned from those sensor but should work for all cases and keeps things simple.
 
-`Measure()`
+`Measure()`  
 Constructor, which creates an instance of the class and requires no arguments.
 
-`void include(float value)`
+`void include(float value)`  
 Adds numeric `value` to the accumulation.  
 
-`float getMax()`
+`float getMax()`  
 Returns the maximum value included in the Measure thus far.  Maximum value tracking can be reset with the `clear()` function (see below).
 
-`float getMin()`
+`float getMin()`  
 Returns the minimum value included in the Measure thus far.  Minimum tracking can be reset with the `clear()` function (see below).
 
-`float getAverage()`
+`float getAverage()`  
 Returns the average of all values included in the Measure thus far.  Average tracking can be reset with either the `resetAverage()` function, which just resets running average calculation, or the `clear()` function (see below).
 
-`float getCurrent()`
+`float getCurrent()`  
 Returns the most recent value included in the Measure accumulation.
 
-`float getTotal()`
+`float getTotal()`  
 Returns the running sum of all values included in the Measure thus far.
 
-`uint32_t getCount()`
+`uint32_t getCount()`  
 Returns the number of values included in the Measure since it was created or most recently cleared.
 
-`void resetAverage()`
+`void resetAverage()`  
 Resets the running average calculation by clearing the count, total, and average values as well as the most recently included (current) value.
 
-`void clear()`
+`void clear()`  
 Clears average, maximum, minimum, total, and count metrics for the Measure, effectively returning it to its state at initial creation.
 
 ## SensorManager
 The **SensorManager** object class provides the following public functions.
 
-`SensorManager(uint32_t sampleDelayMS, uint32_t reportDelayMS)`
+`SensorManager(uint32_t sampleDelayMS, uint32_t reportDelayMS)`  
 Constructor, which creates an instance that can be used to manage reading  sensor values at the specified delay interval, and reporting them at a (probably different) delay interval. Both delay intervals are specified in milliseconds.
 
-`bool sampleNow(uint32_t currentMS)`
+`bool sampleNow(uint32_t currentMS)`  
 Uses the current time in milliseconds, as returned from the `millis()` function to determine whether it is time to carry out another sampling effort.  The SensorManager object keeps track of the time of last sampling, using it and the sample interval to decide whether it is time to carry out another round of sampling.  Returns `true` if it is time to sample again, and `false` otherwise
 
-`bool reportNow(uint32_t currentMS)`
+`bool reportNow(uint32_t currentMS)`  
 Uses the current time in milliseconds, as returned from the `millis()` function to determine whether it is time to carry out another reporting effort.  The SensorManager object keeps track of the time of last report, using it and the reporting interval to decide whether it is time to carry out another round of sampling. Returns `true` if it is time to report again, and `false` otherwise.
 
-`void setSampleDelay(uint32_t delay)`
+`void setSampleDelay(uint32_t delay)`  
 Modifies the sample delay interval, allowing it to be different from what was specified when the SensorManager object was created.  The `delay` specified should be in milliseconds.
 
-`void setReportDelay(uint32_t delay)`
+`void setReportDelay(uint32_t delay)`  
 Modifies the reporting delay interval, allowing it to be different from what was specified when the SensorManager object was created.  The `delay` specified should be in milliseconds.
 
 # Examples
